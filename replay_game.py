@@ -48,7 +48,6 @@ def replay_game(pos_list, move_list):
         if (index_of_move_list % 2) == 0:  # Player 1's move
             pos_list[current_empty_point] = 1
             pos_list[move_list[index_of_move_list]] = 0
-            print(">> Player 1 ", pos_list)
             formatted_str = '>> Player 1 moves from %s to %s' % (
                 move_list[index_of_move_list], current_empty_point)
             print(formatted_str)
@@ -58,7 +57,6 @@ def replay_game(pos_list, move_list):
         if (index_of_move_list % 2) != 0:  # Player 2's move
             pos_list[current_empty_point] = 2
             pos_list[move_list[index_of_move_list]] = 0
-            print(">> Player 2 ", pos_list)
             formatted_str = '>> Player 2 moves from %s to %s' % (
                 move_list[index_of_move_list], current_empty_point)
             print(formatted_str)
