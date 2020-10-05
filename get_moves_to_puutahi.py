@@ -29,12 +29,12 @@ def get_moves_to_puutahi(pos_list, player, pos_options):
                 checked_pos.append(position)
                 new_pos_options = str(player_index) + str(0)
                 pos_options.append(new_pos_options)
-
+    pos_options = list(dict.fromkeys(pos_options))
     return pos_options
 
 
 if __name__ == "__main__":
-    pos_list = [0, 1, 1, 1, 1, 2, 2, 1, 2]
+    pos_list = [0, 1, 2, 1, 1, 2, 2, 1, 2]
     player = 2
     pos_options = ["00"]
     pos_options = get_moves_to_puutahi(pos_list, player, pos_options)
