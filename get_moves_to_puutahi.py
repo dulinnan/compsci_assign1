@@ -13,6 +13,7 @@ def get_moves_to_puutahi(pos_list, player, pos_options):
             break
 
     to_check_pos = []
+    checked_pos = []
     for player_index in player_index_list:
         if player_index == 1:
             to_check_pos.append(8)
@@ -23,18 +24,17 @@ def get_moves_to_puutahi(pos_list, player, pos_options):
         else:
             to_check_pos.append(player_index-1)
             to_check_pos.append(player_index+1)
-        
         for position in to_check_pos:
-            if (pos_list[position] == opposite_player):
+            if (pos_list[position] == opposite_player and position not in checked_pos):
+                checked_pos.append(position)
                 new_pos_options = str(player_index) + str(0)
                 pos_options.append(new_pos_options)
-        
-        to_check_pos.clear()
-    
+
     return pos_options
 
+
 if __name__ == "__main__":
-    pos_list = [0, 1, 1, 1, 1, 2, 2, 2, 2]
+    pos_list = [0, 1, 1, 1, 1, 2, 2, 1, 2]
     player = 2
     pos_options = ["00"]
     pos_options = get_moves_to_puutahi(pos_list, player, pos_options)
