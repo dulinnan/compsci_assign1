@@ -25,7 +25,8 @@ def get_word_lengths(file_name):
         index += 1
     for each_word in read_words_list:
         each_word_length = len(each_word)
-        index_of_word_length = length_count_list.index(each_word_length)
+        index_of_word_length = sorted_length_count_list.index(each_word_length)
+
         length_counter_list[index_of_word_length] += 1
     new_index = 0
     while new_index < len(sorted_length_count_list):
