@@ -1,16 +1,12 @@
-def convert_tuple_to_list(T):
-    flattened_list = []
-    for x in T:
-        if (type(x) is tuple):
-            flattened_list.append(convert_tuple_to_list(x))
-        else:
-            flattened_list.append(x)
-    return flattened_list
-
-
 def get_target_members(input_dict, country_list, min_age, max_age):
     nested_tuple = list(input_dict.items())
-    nested_list = convert_tuple_to_list(nested_tuple)
+    nested_list = []
+    for each_tuple in nested_tuple:
+        each_list = []
+        listify_tuple = list(each_tuple)
+        each_list.append(listify_tuple[0])
+        each_list.append(list(listify_tuple[1]))
+        nested_list.append(each_list)
     return [
         tuple([each_list[1][0], each_list[0]]) for each_list in nested_list if (each_list[1][4] == True and each_list[1][1] in country_list and min_age <= each_list[1][2] <= max_age)]
 
