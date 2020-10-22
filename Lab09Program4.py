@@ -91,4 +91,5 @@ def draw_pattern_in_canvas(a_canvas, number_of_rows):
     draw_square_row(origin_square_x, origin_square_y,
                     square_length, step_length, number_of_rows, a_canvas, "red")
 
+
 main()
