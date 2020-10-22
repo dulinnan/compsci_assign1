@@ -1,0 +1,10 @@
+Ken 58
+Ryu 5
+Chun-Li 60
+Chun-Li 20
+Ken 62
+Ryu 92
+Ryu 35
+Ryu 95
+Blanka 57
+Blanka 58
