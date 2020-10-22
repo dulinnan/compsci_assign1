@@ -49,10 +49,11 @@ def process_word_files(file_name):
     while index < len(words_list):
         output[length_range[index]] = words_list[index]
         index += 1
+    new_output = {}
     for key, value in output.items():
-        if (len(value) == 0 or value == [] or value is None):
-            output.pop(key)
-    return output
+        if (len(value) != 0):
+            new_output[key] = value
+    return new_output
 
 
 if __name__ == "__main__":
