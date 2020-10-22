@@ -1,7 +1,7 @@
 """
 Q4:Draws a pattern of red squares and green ovals.
 Date-written: Semester 2, 2020.
-Author:
+Author: Adam Du
 """
 
 from tkinter import *
@@ -9,14 +9,14 @@ from tkinter import *
 
 def main():
     window = Tk()
-    window.title("Red and Green pattern")  # replace it with your UPI
+    window.title("Red and Green pattern - Austen")  # replace it with your UPI
     window.config(background='white')
     window.geometry("500x350+10+20")
     a_canvas = Canvas(window)
     a_canvas.config(background="white")
     a_canvas.pack(fill=BOTH, expand=True)
     draw_grid(a_canvas)
-    draw_pattern_in_canvas(a_canvas, 6)
+    draw_pattern_in_canvas(a_canvas, 7)
     window.mainloop()
 
 
@@ -41,12 +41,35 @@ def draw_square(x, y, square_length, canvas_name, colour):
     return canvas_name.create_rectangle(x, y, x0, y0, fill=colour)
 
 
-def draw_square_row(x, y, square_length, step_length, row_number, canvas_name):
+def draw_square_row(x, y, square_length, step_length, row_number, canvas_name, colour):
     index = 0
     while index < row_number:
+        draw_square(x,
+                    y + index * step_length, square_length, canvas_name, colour)
         draw_square(x + index * step_length,
-                    y + index * step_length, square_length, canvas_name, "red")
+                    y + index * step_length, square_length, canvas_name, colour)
+        if (abs(index-row_number) <= 2 and row_number % 2 != 0):
+            column_index = 0
+            while column_index < index:
+                draw_square(x + column_index*step_length,
+                            y + index * step_length, square_length, canvas_name, colour)
+                column_index += 1
         index += 2
+
+
+def draw_circle_row(x, y, radius, step_length, row_number, canvas_name, colour):
+    row_index = 1
+    while row_index < row_number:
+        draw_circle(x, y + row_index*step_length, radius, canvas_name, colour)
+        draw_circle(x + row_index*step_length, y + row_index *
+                    step_length, radius, canvas_name, colour)
+        if (abs(row_index-row_number) <= 2 and row_number % 2 == 0):
+            column_index = 0
+            while column_index < row_index:
+                draw_circle(x + column_index*step_length,
+                            y + row_index * step_length, radius, canvas_name, colour)
+                column_index += 1
+        row_index += 2
 
 
 def draw_pattern_in_canvas(a_canvas, number_of_rows):
@@ -63,12 +86,9 @@ def draw_pattern_in_canvas(a_canvas, number_of_rows):
     origin_square_x = 2
     origin_square_y = 2
     step_length = grid_size
-    draw_circle(origin_circle_x, origin_circle_y+step_length,
-                radius, a_canvas, "green")
-    # draw_square(origin_square_x+2*step_length, origin_square_y+3*step_length,
-    #             square_length, a_canvas, "red")
+    draw_circle_row(origin_circle_x, origin_circle_y, radius,
+                    step_length, number_of_rows, a_canvas, "green")
     draw_square_row(origin_square_x, origin_square_y,
-                    step_length, square_length, 3, a_canvas)
-
+                    square_length, step_length, number_of_rows, a_canvas, "red")
 
 main()
