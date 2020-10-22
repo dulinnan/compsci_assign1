@@ -42,12 +42,16 @@ def process_word_files(file_name):
         for each_word in words_with_starting_char:
             if len(each_word) == length_range[index_of_length]:
                 words_list[index_of_length].append(each_word)
+                words_list[index_of_length].sort()
         index_of_length += 1
     index = 0
     output = {}
     while index < len(words_list):
         output[length_range[index]] = words_list[index]
         index += 1
+    for key, value in output.items():
+        if (len(value) == 0 or value == [] or value is None):
+            output.pop(key)
     return output
 
 
