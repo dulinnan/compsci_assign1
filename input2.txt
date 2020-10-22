@@ -1,0 +1,50 @@
+E. Honda 47
+Fei Long 44
+Ken 45
+Ken 5
+Ken 53
+Blanka 35
+Ken 92
+Blanka 59
+Ryu 76
+Blanka 38
+Ryu 58
+E. Honda 24
+M. Bison 39
+Chun-Li 52
+Ryu 75
+Fei Long 54
+E. Honda 49
+Ken 75
+Ryu 64
+Fei Long 92
+Ken 2
+E. Honda 68
+E. Honda 74
+Chun-Li 46
+E. Honda 73
+Ryu 84
+M. Bison 16
+Chun-Li 93
+Chun-Li 55
+Fei Long 12
+Blanka 51
+Ryu 9
+Chun-Li 8
+Ryu 58
+E. Honda 70
+Ryu 14
+Chun-Li 16
+M. Bison 47
+Fei Long 5
+Fei Long 33
+Chun-Li 32
+Fei Long 59
+Ryu 39
+Ken 50
+M. Bison 43
+Chun-Li 5
+Ken 24
+Blanka 67
+Chun-Li 0
+Blanka 54

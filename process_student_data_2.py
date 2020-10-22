@@ -17,7 +17,8 @@ def process_student_data(file_name):
         sanitised_record = every_record.replace("\n", "").strip()
         sanitised_list.append(sanitised_record)
     for each_record in sanitised_list:
-        student_name = each_record.split(" ")[0]
+        student_name_string_list = each_record.split(" ")[:-1]
+        student_name = " ".join(student_name_string_list)
         if student_name not in student_names_list:
             student_names_list.append(student_name)
     sort_names_list = sorted(student_names_list)
@@ -26,9 +27,11 @@ def process_student_data(file_name):
     index = 0
     while index < len(sort_names_list):
         for each_record in sanitised_list:
-            if (sort_names_list[index] == each_record.split(" ")[0]):
+            student_name_string_list = each_record.split(" ")[:-1]
+            student_name = " ".join(student_name_string_list)
+            if (sort_names_list[index] == student_name):
                 student_grades_list[index].append(
-                    int(each_record.split(" ")[1]))
+                    int(each_record.split(" ")[-1]))
                 student_grades_list[index].sort()
         index += 1
     index_of_student = 0
@@ -40,6 +43,6 @@ def process_student_data(file_name):
 
 
 if __name__ == "__main__":
-    file_path = "./input1.txt"
+    file_path = "./input2.txt"
     data_dict = process_student_data(file_path)
     print_dictionary(data_dict)
