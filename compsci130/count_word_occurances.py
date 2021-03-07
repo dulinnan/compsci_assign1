@@ -17,14 +17,14 @@ def prompt_user_input_for_filename():
     return filename
 
 def count_word_occurances():
-    path_to_file = prompt_user_input_for_filename()
+    path_to_file = prompt_user_input_for_filename() 
     with open(path_to_file) as f:
         read_words_list = f.read()
-        read_words_list = read_words_list.replace("\n", " ").strip()
-        read_words_list = read_words_list.split(" ")
+        read_words_list = read_words_list.replace("\n", ",").strip()
+        read_words_list = read_words_list.replace(" ", ",").strip()
+        read_words_list = read_words_list.split(",")
     f.close()
     sanitised_list = sanitise_list(read_words_list)
-    print(sanitised_list)
 
 
 if __name__ == "__main__":
